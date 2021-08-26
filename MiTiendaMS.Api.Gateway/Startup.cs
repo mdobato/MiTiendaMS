@@ -30,7 +30,9 @@ namespace MiTiendaMS.Api.Gateway
                 o.SupportedTokens = SupportedTokens.Both;
             });
 
-            services.AddOcelot();
+            services.AddOcelot(Configuration);
+            services.AddSwaggerForOcelot(Configuration);
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
 
             //services.AddSwaggerForOcelot(Configuration,
             //(o) =>
@@ -44,13 +46,22 @@ namespace MiTiendaMS.Api.Gateway
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UsePathBase("/gateway");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
+            app.UseHttpsRedirection();
+            app.UseSwagger();
+            
+            app.UseSwaggerForOcelotUI( opt =>
+            {
+                opt.DownstreamSwaggerEndPointBasePath = "/gateway/swagger/docs";
+                opt.PathToSwaggerGenerator = "/swagger/docs";
+            });
 
-            //app.UseSwagger();
-            //app.UseSwaggerForOcelotUI();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

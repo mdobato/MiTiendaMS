@@ -20,6 +20,8 @@ C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.Extensions.Configura
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.EntityFrameworkCore.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\FluentValidation.AspNetCore.dll
+C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\MediatR.dll
@@ -27,9 +29,12 @@ C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\AutoMapper.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\FluentValidation.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.OpenApi.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\IdentityServer4.AccessTokenValidation.dll
+C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\MMLib.SwaggerForOcelot.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Ocelot.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.Extensions.Primitives.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
@@ -49,11 +54,13 @@ C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.IdentityModel.Protoc
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Kros.Utils.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.Extensions.DiagnosticAdapter.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.AspNetCore.MiddlewareAnalysis.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.IdentityModel.Logging.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\System.Data.SqlClient.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\Newtonsoft.Json.Bson.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\bin\Debug\MiTiendaMS.Api.Autor.pdb

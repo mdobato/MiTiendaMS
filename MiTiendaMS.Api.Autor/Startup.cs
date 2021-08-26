@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using MediatR;
 using MiTiendaMS.Api.Autor.Application;
 using FluentValidation.AspNetCore;
+using Microsoft.OpenApi.Models;
 
 namespace MiTiendaMS.Api.Autor
 {
@@ -37,6 +38,11 @@ namespace MiTiendaMS.Api.Autor
             services.AddMediatR(typeof(AutorWDomain.AutorRequestHandler).Assembly);
             services.AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<AutorWDomain>());
             services.AddAutoMapper(typeof(AutorRDomain));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api Autor", Version = "v1" });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +52,12 @@ namespace MiTiendaMS.Api.Autor
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api Autor v1");
+            });
 
             app.UseRouting();
 

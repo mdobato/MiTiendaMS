@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using MiTiendaMS.Api.Libro.Application;
 using MiTiendaMS.Api.Libro.Persistence;
 using MiTiendaMS.Api.Libro.RemoteInterface;
@@ -43,7 +44,10 @@ namespace MiTiendaMS.Api.Libro
                 cfg.BaseAddress = new Uri(Configuration["Services:Autores"]);
             });
             services.AddScoped<IAutorService, AutorService>();
-
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api Libro", Version = "v1" });
+            });
 
         }
 
@@ -54,6 +58,12 @@ namespace MiTiendaMS.Api.Libro
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api Libro v1");
+            });
 
             app.UseRouting();
 

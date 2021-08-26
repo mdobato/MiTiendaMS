@@ -12,8 +12,6 @@ C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcore
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\IdentityModel.AspNetCore.OAuth2Introspection.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\IdentityServer4.AccessTokenValidation.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\Kros.Utils.dll
-C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
-C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.MiddlewareAnalysis.dll
@@ -33,7 +31,6 @@ C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcore
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\Swashbuckle.Core.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
@@ -41,6 +38,7 @@ C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcore
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\obj\Debug\netcoreapp3.1\MiTiendaMS.Api.Gateway.csproj.AssemblyReference.cache
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\obj\Debug\netcoreapp3.1\MiTiendaMS.Api.Gateway.AssemblyInfoInputs.cache
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\obj\Debug\netcoreapp3.1\MiTiendaMS.Api.Gateway.AssemblyInfo.cs
 C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\obj\Debug\netcoreapp3.1\MiTiendaMS.Api.Gateway.csproj.CoreCompileInputs.cache

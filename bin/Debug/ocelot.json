@@ -11,6 +11,7 @@
       ],
       "UpstreamPathTemplate": "/Libro",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "SwaggerKey": "libro",
       "key": "LibroOcelotKey",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -28,6 +29,7 @@
       ],
       "UpstreamPathTemplate": "/Libro/{id}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "SwaggerKey": "libro",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
@@ -45,6 +47,7 @@
       ],
       "UpstreamPathTemplate": "/Autor",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "SwaggerKey": "autor",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
@@ -62,6 +65,7 @@
       ],
       "UpstreamPathTemplate": "/Autor/{id}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "SwaggerKey": "autor",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
@@ -78,7 +82,28 @@
       ],
       "UpstreamPathTemplate": "/LibroAutor"
     }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "libro",
+      "Config": [
+        {
+          "Name": "Libro API",
+          "Version": "v1",
+          "Url": "http://MiTiendaMS.Api.Libro/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "autor",
+      "Config": [
+        {
+          "Name": "Autor API",
+          "Version": "v1",
+          "Url": "http://MiTiendaMS.Api.Autor/swagger/v1/swagger.json"
+        }
+      ]
+    }
   ]
-
 
 }
