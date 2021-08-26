@@ -1,0 +1,49 @@
+services:
+  mitiendams.api.autor:
+    build:
+      context: C:\Users\Miguel\source\repos\MiTiendaMS
+      dockerfile: C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Autor\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mitiendamsapiautor
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+  mitiendams.api.gateway:
+    build:
+      context: C:\Users\Miguel\source\repos\MiTiendaMS
+      dockerfile: C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Gateway\Dockerfile
+    depends_on:
+      mitiendams.api.libro:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mitiendamsapigateway
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 6107
+      protocol: tcp
+  mitiendams.api.libro:
+    build:
+      context: C:\Users\Miguel\source\repos\MiTiendaMS
+      dockerfile: C:\Users\Miguel\source\repos\MiTiendaMS\MiTiendaMS.Api.Libro\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Services__Autores: http://MiTiendaMS.Api.Autor
+    image: mitiendamsapilibro
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+networks:
+  default:
+    name: mitiendams_network
+    external: true

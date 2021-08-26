@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  mitiendams.api.libro:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Services__Autores=http://MiTiendaMS.Api.Autor
+    ports:
+      - "80"
+
+  mitiendams.api.autor:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+  mitiendams.api.gateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - mitiendams.api.libro
+    ports:
+      - "6107:80"
+
