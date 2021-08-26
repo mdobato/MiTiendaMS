@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MiTiendaMS.Api.Libro</name>
+    </assembly>
+    <members>
+        <member name="M:MiTiendaMS.Api.Libro.Controllers.LibroController.GetLibros">
+            <summary>
+            Obtiene todos los libros que existen actualmente
+            </summary>
+            <returns>Lista de objetos libro</returns>
+        </member>
+        <member name="M:MiTiendaMS.Api.Libro.Controllers.LibroController.GetLibro(System.String)">
+            <summary>
+            Obtiene un libro por su ID
+            </summary>
+            <param name="id">Id del libro a recuperar</param>
+            <returns>Libro recuperado, si existe</returns>
+        </member>
+        <member name="M:MiTiendaMS.Api.Libro.Controllers.LibroController.Crear(MiTiendaMS.Api.Libro.Application.LibroWDomain.LibroRequest)">
+            <summary>
+            Crea un nuevo libro
+            </summary>
+            <param name="request">Objeto con los datos del libro que se va a crear</param>
+            <returns>Devuelve un Unit según si ha tenido éxito o no el alta del nuevo libro</returns>
+        </member>
+    </members>
+</doc>
