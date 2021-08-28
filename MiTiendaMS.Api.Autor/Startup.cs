@@ -15,6 +15,8 @@ using MediatR;
 using MiTiendaMS.Api.Autor.Application;
 using FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
 
 namespace MiTiendaMS.Api.Autor
 {
@@ -41,8 +43,10 @@ namespace MiTiendaMS.Api.Autor
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api Autor", Version = "v1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

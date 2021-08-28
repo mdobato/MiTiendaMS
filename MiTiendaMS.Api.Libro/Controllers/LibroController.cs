@@ -22,11 +22,22 @@ namespace MiTiendaMS.Api.Libro.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Devuelve todos los libros registrados
+        /// </summary>
+        /// <returns>Objetos libro</returns>
+
         [HttpGet]
         public async Task<ActionResult<List<LibroDto>>> GetLibros()
         {
             return await _mediator.Send(new LibroRDomain.LibrosIRequest());
         }
+
+        /// <summary>
+        /// Devuelve un libro por su ID
+        /// </summary>
+        /// <param name="id">Id del libro</param>
+        /// <returns>Objeto libro</returns>
 
         [HttpGet("{id}")]
         public async Task<ActionResult<LibroDto>> GetLibro(string id)
@@ -34,6 +45,11 @@ namespace MiTiendaMS.Api.Libro.Controllers
             return await _mediator.Send(new LibroRDomain.LibroIRequest { LibroGuid = id });
         }
 
+        /// <summary>
+        /// Crea un nuevo libro
+        /// </summary>
+        /// <param name="request">Datos del libro</param>
+        /// <returns>Id del nuevo libro creado</returns>
         [HttpPost]
         public async Task<ActionResult<Unit>> Crear(LibroWDomain.LibroRequest request)
         {
