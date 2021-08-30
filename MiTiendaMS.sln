@@ -11,7 +11,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiTiendaMS.Api.Gateway", "MiTiendaMS.Api.Gateway\MiTiendaMS.Api.Gateway.csproj", "{2D1E52CD-1E58-43FA-8526-3909A10CF418}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiTiendaMS", "MiTiendaMS\MiTiendaMS.csproj", "{F5B87CD6-A946-4AE8-8C93-090A64FF7CA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiTiendaMS", "MiTiendaMS\MiTiendaMS.csproj", "{F5B87CD6-A946-4AE8-8C93-090A64FF7CA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,8 +5,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using MiTiendaMS.Api.Gateway.Interceptor;
+using MiTiendaMS.Api.Gateway.Repository;
+using MMLib.SwaggerForOcelot.Middleware;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using System.Collections.Generic;
 
 namespace MiTiendaMS.Api.Gateway
 {
@@ -29,18 +33,12 @@ namespace MiTiendaMS.Api.Gateway
                 o.ApiName = "api";
                 o.SupportedTokens = SupportedTokens.Both;
             });
-
             services.AddOcelot(Configuration);
             services.AddSwaggerForOcelot(Configuration);
+            //services.AddSingleton<ISwaggerDownstreamInterceptor, PublishedDownstreamInterceptor>();
+            //services.AddSingleton<ISwaggerEndpointConfigurationRepository, DummySwaggerEndpointRepository>();
+
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
-
-            //services.AddSwaggerForOcelot(Configuration,
-            //(o) =>
-            //{
-            //    o.GenerateDocsForAggregates = true;
-            //    o.GenerateDocsForGatewayItSelf = true;
-            //});
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +57,7 @@ namespace MiTiendaMS.Api.Gateway
             app.UseSwaggerForOcelotUI( opt =>
             {
                 opt.DownstreamSwaggerEndPointBasePath = "/gateway/swagger/docs";
-                opt.PathToSwaggerGenerator = "/swagger/docs";
+                opt.PathToSwaggerGenerator = "/swagger/docs";                
             });
 
             app.UseRouting();

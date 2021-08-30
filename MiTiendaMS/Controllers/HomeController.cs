@@ -35,6 +35,10 @@ namespace MiTiendaMS.Controllers
 
             return View();
         }
+        public RedirectResult Swagger()
+        {
+            return Redirect("http://localhost:6107/swagger/index.html");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
