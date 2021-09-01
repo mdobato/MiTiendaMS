@@ -4,13 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using MiTiendaMS.Api.Gateway.Interceptor;
-using MiTiendaMS.Api.Gateway.Repository;
-using MMLib.SwaggerForOcelot.Middleware;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using System.Collections.Generic;
 
 namespace MiTiendaMS.Api.Gateway
 {

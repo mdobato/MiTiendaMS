@@ -1,6 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿
+<h3>Claims de usuario</h3>
+<ul>
+    @foreach (var claim in ViewData["Claims"] as IEnumerable<System.Security.Claims.Claim>)
+    {
+    <li>
+        @claim.Type : @claim.Value
+    </li>
+    }
+</ul><br/>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<h3>Claims del token</h3>
+<ul>
+    @foreach (var claim in ViewData["ClaimsToken"] as IEnumerable<System.Security.Claims.Claim>)
+    {
+        <li>
+            @claim.Type : @claim.Value
+        </li>
+    }
+</ul>
