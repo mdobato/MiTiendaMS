@@ -36,9 +36,13 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# VS generated files #
+######################
 netcoreapp3.1
 obj/
 bin/
 Debug/
 Release/
-.vs/
+*.user
+.vs
