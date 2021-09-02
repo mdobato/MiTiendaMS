@@ -48,13 +48,40 @@ namespace MiTiendaMS.Api.Libro.Controllers
         /// <summary>
         /// Crea un nuevo libro
         /// </summary>
-        /// <param name="request">Datos del libro</param>
+        /// <param name="cmd">Datos del libro</param>
         /// <returns>Id del nuevo libro creado</returns>
         [HttpPost]
-        public async Task<ActionResult<Unit>> Crear(LibroWDomain.LibroRequest request)
+        public async Task<ActionResult<string>> Crear(LibroCreateWDomain.LibroCreateCommand cmd)
         {
-            return await _mediator.Send(request);
+            return await _mediator.Send(cmd);
         }
+
+        /// <summary>
+        /// Actualiza los datos del libro por su Id
+        /// </summary>
+        /// <param name="id">Id del libro</param>
+        /// <param name="cmd">Datos del libro</param>
+        /// <returns> OK / KO </returns>
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> Actualiza(string id, LibroUpdateDomain.LibroUpdateCommand cmd)
+        {
+            if(cmd.Id != id)
+            {
+                return BadRequest();
+            }
+            return await _mediator.Send(cmd);
+        }
+        /// <summary>
+        /// Elimina el libro
+        /// </summary>
+        /// <param name="id">Id del autor</param>
+        /// <returns> OK / KO </returns>
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> Elimina(string id)
+        {
+            return await _mediator.Send(new LibroDeleteDomain.LibroDeleteCommand { Guid = id });
+        }
+
 
     }
 }

@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Libro",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "libro",
       "key": "LibroOcelotKey",
       "AuthenticationOptions": {
@@ -28,7 +28,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Libro/{id}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
       "SwaggerKey": "libro",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -46,7 +46,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Autor",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "autor",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -64,7 +64,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Autor/{id}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
       "SwaggerKey": "autor",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",

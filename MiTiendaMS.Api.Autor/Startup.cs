@@ -37,8 +37,8 @@ namespace MiTiendaMS.Api.Autor
                 opt.UseSqlServer(Configuration.GetConnectionString("ConnectionDB"));
             });
             services.AddControllers();
-            services.AddMediatR(typeof(AutorWDomain.AutorRequestHandler).Assembly);
-            services.AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<AutorWDomain>());
+            services.AddMediatR(typeof(AutorCreateDomain.AutorCreateCommandHandler).Assembly);
+            services.AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<AutorCreateDomain>());
             services.AddAutoMapper(typeof(AutorRDomain));
             services.AddSwaggerGen(c =>
             {

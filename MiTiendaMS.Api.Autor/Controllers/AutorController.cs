@@ -45,12 +45,37 @@ namespace MiTiendaMS.Api.Autor.Controllers
         /// <summary>
         /// Crea un nuevo autor
         /// </summary>
-        /// <param name="request">Datos del autor</param>
+        /// <param name="cmd">Datos del autor</param>
         /// <returns>Id del nuevo autor creado</returns>
         [HttpPost]
-        public async Task<ActionResult<Unit>> Crear(AutorWDomain.AutorRequest request)
+        public async Task<ActionResult<string>> Crear(AutorCreateDomain.AutorCreateCommand cmd)
         {
-            return await _mediator.Send(request);
+            return await _mediator.Send(cmd);
+        }
+        /// <summary>
+        /// Actualiza los datos del autor
+        /// </summary>
+        /// <param name="id">Id del autor</param>
+        /// <param name="cmd">Datos del autor</param>
+        /// <returns> OK / KO </returns>
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> Actualiza(string id, AutorUpdateDomain.AutorUpdateCommand cmd)
+        {
+            if (cmd.Id != id)
+            {
+                return BadRequest();
+            }
+            return await _mediator.Send(cmd);
+        }
+        /// <summary>
+        /// Elimina el autor
+        /// </summary>
+        /// <param name="id">Id del autor</param>
+        /// <returns> OK / KO </returns>
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> Elimina(string id)
+        {
+            return await _mediator.Send(new AutorDeleteDomain.AutorDeleteCommand { Guid = id });
         }
     }
 }

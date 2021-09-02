@@ -39,8 +39,8 @@ namespace MiTiendaMS.Api.Libro
                 opt.UseSqlServer(Configuration.GetConnectionString("ConnectionDB"));
             });
             services.AddControllers();
-            services.AddMediatR(typeof(LibroWDomain.LibroRequestHandler).Assembly);
-            services.AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<LibroWDomain>());
+            services.AddMediatR(typeof(LibroCreateWDomain.LibroCreateCommandHandler).Assembly);
+            services.AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<LibroCreateWDomain>());
             services.AddAutoMapper(typeof(LibroRDomain));
             services.AddHttpClient("Autores", cfg => {
                 cfg.BaseAddress = new Uri(Configuration["Services:Autores"]);
