@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MiTiendaMS.Api.Common;
 using MiTiendaMS.Api.Libro.Application;
 using MiTiendaMS.Api.Libro.Application.Dto;
 using System;
@@ -28,9 +29,9 @@ namespace MiTiendaMS.Api.Libro.Controllers
         /// <returns>Objetos libro</returns>
 
         [HttpGet]
-        public async Task<ActionResult<List<LibroDto>>> GetLibros()
+        public async Task<ActionResult<PagedCollection<LibroDto>>> GetLibros(int pageParam, int takeParam)
         {
-            return await _mediator.Send(new LibroRDomain.LibrosIRequest());
+            return await _mediator.Send(new LibroRDomain.LibrosIRequest { Page = pageParam, Take = takeParam });
         }
 
         /// <summary>

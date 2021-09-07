@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MiTiendaMS.Api.Autor.Application;
 using MiTiendaMS.Api.Autor.Application.Dto;
+using MiTiendaMS.Api.Common;
 using MiTiendaMS.Api.Autor.Model;
 using System;
 using System.Collections.Generic;
@@ -23,13 +24,13 @@ namespace MiTiendaMS.Api.Autor.Controllers
         }
 
         /// <summary>
-        /// Devuelve todos los autores registrados
+        /// Devuelve todos los autores registrados con paginación
         /// </summary>
         /// <returns>Objetos autor</returns>
         [HttpGet]
-        public async Task<ActionResult<List<AutorDto>>> GetAutores()
+        public async Task<ActionResult<PagedCollection<AutorDto>>> GetAutores(int pageParam, int takeParam)
         {
-            return await _mediator.Send(new AutorRDomain.AutoresRequest());
+            return await _mediator.Send(new AutorRDomain.AutoresRequest { Page = pageParam, Take = takeParam });
         }
         /// <summary>
         /// Devuelve un autor por su ID

@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MiTiendaMS.Api.Autor.Application.Dto;
+using MiTiendaMS.Api.Common;
 using MiTiendaMS.Api.Autor.Model;
 using MiTiendaMS.Api.Autor.Persistence;
 using System;
@@ -14,12 +15,13 @@ namespace MiTiendaMS.Api.Autor.Application
 {
     public class AutorRDomain
     {
-        public class AutoresRequest : IRequest<List<AutorDto>>
+        public class AutoresRequest : IRequest<PagedCollection<AutorDto>>
         {
-
+            public int Page { get; set; }
+            public int Take { get; set; }
         }
 
-        public class AutoresRequestHandler : IRequestHandler<AutoresRequest, List<AutorDto>>
+        public class AutoresRequestHandler : IRequestHandler<AutoresRequest, PagedCollection<AutorDto>>
         {
             private readonly AutorContext _context;
             private readonly IMapper _mapper;
@@ -30,11 +32,11 @@ namespace MiTiendaMS.Api.Autor.Application
                 _mapper = mapper;
             }
 
-            public async Task<List<AutorDto>> Handle(AutoresRequest request, CancellationToken cancellationToken)
+            public async Task<PagedCollection<AutorDto>> Handle(AutoresRequest request, CancellationToken cancellationToken)
             {
-                var autores = await _context.Autor.ToListAsync();
-                var autoresDto = _mapper.Map<List<AutorModel>, List<AutorDto>>(autores);
-                return autoresDto;
+                var autoresPaged = await _context.Autor.GetPagedAsync(request.Page, request.Take);
+                var autoresDtoPaged = _mapper.Map<PagedCollection<AutorModel>, PagedCollection<AutorDto>>(autoresPaged);
+                return autoresDtoPaged;
             }
         }
 

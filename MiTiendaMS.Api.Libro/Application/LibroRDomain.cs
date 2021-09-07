@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using MiTiendaMS.Api.Common;
 using MiTiendaMS.Api.Libro.Application.Dto;
 using MiTiendaMS.Api.Libro.Model;
 using MiTiendaMS.Api.Libro.Persistence;
@@ -15,12 +16,13 @@ namespace MiTiendaMS.Api.Libro.Application
 {
     public class LibroRDomain
     {
-        public class LibrosIRequest : IRequest<List<LibroDto>>
+        public class LibrosIRequest : IRequest<PagedCollection<LibroDto>>
         {
-
+            public int Page { get; set; }
+            public int Take { get; set; }
         }
 
-        public class LibrosIRequestHandler : IRequestHandler<LibrosIRequest, List<LibroDto>>
+        public class LibrosIRequestHandler : IRequestHandler<LibrosIRequest, PagedCollection<LibroDto>>
         {
             private readonly LibroContext _context;
             private readonly IMapper _mapper;
@@ -33,12 +35,13 @@ namespace MiTiendaMS.Api.Libro.Application
                 _autorSrv = autorSrv;
             }
 
-            public async Task<List<LibroDto>> Handle(LibrosIRequest request, CancellationToken cancellationToken)
+            public async Task<PagedCollection<LibroDto>> Handle(LibrosIRequest request, CancellationToken cancellationToken)
             {
-                var libros = await _context.Libro.ToListAsync();
-                var librosDto = _mapper.Map<List<LibroModel>, List<LibroDto>>(libros);
+                var librosPaged = await _context.Libro.GetPagedAsync(request.Page, request.Take);
+                var librosDtoPaged = _mapper.Map<PagedCollection<LibroModel>, PagedCollection<LibroDto>>(librosPaged);
 
-                foreach (var libro in librosDto)
+
+                foreach (var libro in librosDtoPaged.Items)
                 {
                     var response = await _autorSrv.GetAutor(libro.AutorGuid);
                     if (response.Result)
@@ -49,7 +52,7 @@ namespace MiTiendaMS.Api.Libro.Application
                     }
                 }
 
-                return librosDto;
+                return librosDtoPaged;
 
             }
         }
