@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MiTiendaMS.Api.Gateway.Interceptor;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -25,15 +24,12 @@ namespace MiTiendaMS.Api.Gateway
             services.AddAuthentication()
             .AddIdentityServerAuthentication("Bearer", o =>
             {
-                o.Authority = "https://demo.identityserver.io";
-                o.ApiName = "api";
+                o.Authority = Configuration["IdentityServer:Authority"];
+                o.ApiName = Configuration["IdentityServer:Scope"];
                 o.SupportedTokens = SupportedTokens.Both;
             });
             services.AddOcelot(Configuration);
             services.AddSwaggerForOcelot(Configuration);
-            //services.AddSingleton<ISwaggerDownstreamInterceptor, PublishedDownstreamInterceptor>();
-            //services.AddSingleton<ISwaggerEndpointConfigurationRepository, DummySwaggerEndpointRepository>();
-
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
         }
 

@@ -29,20 +29,18 @@ namespace MiTiendaMS
             })
             .AddOpenIdConnect(setup =>
             {
-                setup.Authority = "https://demo.identityserver.io";
-                setup.ClientId = "interactive.confidential";
-                setup.ClientSecret = "secret";
+                setup.Authority = Configuration["IdentityServer:Authority"];
+                setup.ClientId = Configuration["IdentityServer:ClientId"];
+                setup.ClientSecret = Configuration["IdentityServer:ClientSecret"];
                 setup.Scope.Clear();
-                setup.Scope.Add("openid");
-                setup.Scope.Add("profile");
-                setup.Scope.Add("api");
-                setup.Scope.Add("email");
-                setup.Scope.Add("offline_access");
+                foreach(var scope in Configuration["IdentityServer:Scopes"]?.Split(";"))
+                {
+                    setup.Scope.Add(scope.Trim());
+                }
 
-                setup.ResponseType = "code";
-                setup.UsePkce = true;
-
-                setup.SaveTokens = true;
+                setup.ResponseType = Configuration["IdentityServer:ResponseType"];
+                setup.UsePkce = Configuration.GetValue<bool>("IdentityServer:UsePkce");
+                setup.SaveTokens = Configuration.GetValue<bool>("IdentityServer:SaveTokens");
 
             }).AddCookie();
 
@@ -53,19 +51,6 @@ namespace MiTiendaMS
                     builder.RequireClaim(ClaimTypes.NameIdentifier, "1");
                 });
             });
-            //services.AddAuthorization(setup =>
-            //{
-            //    setup.AddPolicy("my-policy-1", builder =>
-            //    {
-            //        //builder.RequireClaim(ClaimTypes.NameIdentifier, "1");
-            //        builder.AddRequirements(new AuthorizationRequirement
-            //        {
-            //            AUProperty1 = "AUProperty1_valor",
-            //            AUProperty2 = "AUProperty2_valor"
-            //        });
-            //    });
-            //});
-            //services.AddSingleton<IAuthorizationHandler, AuthorizationRequirementHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

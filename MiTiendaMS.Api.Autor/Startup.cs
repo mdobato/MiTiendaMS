@@ -1,22 +1,18 @@
+using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using MiTiendaMS.Api.Autor.Application;
 using MiTiendaMS.Api.Autor.Persistence;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MediatR;
-using MiTiendaMS.Api.Autor.Application;
-using FluentValidation.AspNetCore;
-using Microsoft.OpenApi.Models;
-using System.Reflection;
 using System.IO;
+using System.Reflection;
 
 namespace MiTiendaMS.Api.Autor
 {
@@ -53,10 +49,10 @@ namespace MiTiendaMS.Api.Autor
                     {
                         ClientCredentials = new OpenApiOAuthFlow
                         {
-                            TokenUrl = new Uri("https://demo.identityserver.io/connect/token"),
+                            TokenUrl = new Uri(Configuration["IdentityServer:TokenUrl"]),
                             Scopes = new Dictionary<string, string>
                             {
-                                {"api", "Demo API - full access"}
+                                {Configuration["IdentityServer:Scope"], "Demo API - full access"}
                             }
                         }
                     }
@@ -68,7 +64,7 @@ namespace MiTiendaMS.Api.Autor
                         {
                             Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "oauth2" }
                         },
-                        new[] { "api" }
+                        new[] { Configuration["IdentityServer:Scope"] }
                     }
                 });
 

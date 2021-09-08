@@ -5,12 +5,14 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - Services__Autores=http://MiTiendaMS.Api.Autor
+      - ConnectionStrings__ConnectionDB=Server=sqlserver; Initial Catalog=Libro;User Id=userTL;Password=Hal9000*;
     ports:
       - "80"
 
   mitiendams.api.autor:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__ConnectionDB=Server=sqlserver; Initial Catalog=Autor;User Id=userTL;Password=Hal9000*;
     ports:
       - "80"
 
