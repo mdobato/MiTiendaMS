@@ -1,7 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Company>mdobato</Company>
+    <Authors>mdobato</Authors>
+    <Description>Paginación de resultados, el motivo de su creación es desacomplar código redundante entre microservicios</Description>
+    <PackageId>MiTiendaMS.Api.Common.mdobato</PackageId>
+    <PackageTags>pagging, record, webapi</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl></RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
