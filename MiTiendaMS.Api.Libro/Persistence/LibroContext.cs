@@ -9,8 +9,9 @@ namespace MiTiendaMS.Api.Libro.Persistence
 {
     public class LibroContext : DbContext
     {
+        public LibroContext() : base() { }
         public LibroContext(DbContextOptions<LibroContext> options) : base(options) { }
 
-        public DbSet<LibroModel> Libro { get; set; }
+        public virtual DbSet<LibroModel> Libro { get; set; }
     }
 }
