@@ -93,5 +93,27 @@ namespace MiTiendaMS.Api.Libro.Test
             Assert.True(libros.Items.Count() == take);
 
         }
+    
+        [Fact]
+        public async void AddLibro()
+        {
+            var options = new DbContextOptionsBuilder<LibroContext>()
+                .UseInMemoryDatabase(databaseName: "LibroDatabase")
+                .Options;
+            var context = new LibroContext(options);
+
+            var request = new LibroCreateWDomain.LibroCreateCommand()
+            {
+                Titulo = "Microservicios",
+                Descripcion = "Libro de microservicios",
+                AutorGuid = Guid.Empty.ToString()
+            };
+            var handler = new LibroCreateWDomain.LibroCreateCommandHandler(context);
+
+            var result = await handler.Handle(request, new System.Threading.CancellationToken());
+
+            Assert.True(result != null);
+
+        }
     }
 }
