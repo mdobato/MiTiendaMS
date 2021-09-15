@@ -28,7 +28,7 @@ namespace MiTiendaMS.Api.Autor.Controllers
         /// </summary>
         /// <returns>Objetos autor</returns>
         [HttpGet]
-        public async Task<ActionResult<PagedCollection<AutorDto>>> GetAutores(int pageParam, int takeParam)
+        public async Task<ActionResult<PagedCollection<AutorDto>>> GetAutores(int pageParam = 1, int takeParam = 10)
         {
             return await _mediator.Send(new AutorRDomain.AutoresRequest { Page = pageParam, Take = takeParam });
         }

@@ -29,7 +29,7 @@ namespace MiTiendaMS.Api.Libro.Controllers
         /// <returns>Objetos libro</returns>
 
         [HttpGet]
-        public async Task<ActionResult<PagedCollection<LibroDto>>> GetLibros(int pageParam, int takeParam)
+        public async Task<ActionResult<PagedCollection<LibroDto>>> GetLibros(int pageParam = 1, int takeParam = 10)
         {
             return await _mediator.Send(new LibroRDomain.LibrosIRequest { Page = pageParam, Take = takeParam });
         }
