@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiTiendaMS.Api.Common", "Mi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiTiendaMS.Api.Libro.Test", "MiTiendaMS.Api.Libro.Test\MiTiendaMS.Api.Libro.Test.csproj", "{E4AC7078-D578-485E-9DC6-465D12CDA14D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiTiendaMS.Api.Test.Common", "MiTiendaMS.Api.Test.Common\MiTiendaMS.Api.Test.Common.csproj", "{DADC014D-91AD-4A54-AC14-92DC95E3DCD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiTiendaMS.Api.Test.Common", "MiTiendaMS.Api.Test.Common\MiTiendaMS.Api.Test.Common.csproj", "{DADC014D-91AD-4A54-AC14-92DC95E3DCD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiTiendaMS.RabbitMQ.Bus", "MiTiendaMS.RabbitMQ.Bus\MiTiendaMS.RabbitMQ.Bus.csproj", "{93889768-7C0D-4F22-BD40-F9664879B855}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{DADC014D-91AD-4A54-AC14-92DC95E3DCD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DADC014D-91AD-4A54-AC14-92DC95E3DCD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DADC014D-91AD-4A54-AC14-92DC95E3DCD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93889768-7C0D-4F22-BD40-F9664879B855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93889768-7C0D-4F22-BD40-F9664879B855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93889768-7C0D-4F22-BD40-F9664879B855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93889768-7C0D-4F22-BD40-F9664879B855}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
