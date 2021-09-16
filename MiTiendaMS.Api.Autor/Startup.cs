@@ -6,9 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MiTiendaMS.Api.Autor.Application;
 using MiTiendaMS.Api.Autor.Persistence;
+using MiTiendaMS.Api.Autor.Rabbit;
+using MiTiendaMS.RabbitMQ.Bus.BusRabbit;
+using MiTiendaMS.RabbitMQ.Bus.Implementation;
+using MiTiendaMS.RabbitMQ.Bus.Queue;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +33,14 @@ namespace MiTiendaMS.Api.Autor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IRabbitEventBus, RabbitEventBus>(sp => {
+                var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+                return new RabbitEventBus(sp.GetService<IMediator>(), scopeFactory);
+            });
+
+            services.AddTransient<EmailEventHandler>();
+
+            services.AddTransient<IEventHandler<EmailQueueEvent>, EmailEventHandler>();
             services.AddDbContext<AutorContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("ConnectionDB"));
@@ -93,6 +106,9 @@ namespace MiTiendaMS.Api.Autor
             {
                 endpoints.MapControllers();
             });
+
+            var eventBus = app.ApplicationServices.GetRequiredService<IRabbitEventBus>();
+            eventBus.Subscribe<EmailQueueEvent, EmailEventHandler>();
         }
     }
 }

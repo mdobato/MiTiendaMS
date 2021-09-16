@@ -13,6 +13,7 @@ using MiTiendaMS.Api.Libro.Model;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using MiTiendaMS.Api.Test.Common.Entities;
+using MiTiendaMS.RabbitMQ.Bus.Implementation;
 
 namespace MiTiendaMS.Api.Libro.Test
 {
@@ -108,7 +109,10 @@ namespace MiTiendaMS.Api.Libro.Test
                 Descripcion = "Libro de microservicios",
                 AutorGuid = Guid.Empty.ToString()
             };
-            var handler = new LibroCreateWDomain.LibroCreateCommandHandler(context);
+
+            //var evtBus = new RabbitEventBus()
+
+            var handler = new LibroCreateWDomain.LibroCreateCommandHandler(context, null);
 
             var result = await handler.Handle(request, new System.Threading.CancellationToken());
 

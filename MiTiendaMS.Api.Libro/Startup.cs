@@ -11,6 +11,8 @@ using MiTiendaMS.Api.Libro.Application;
 using MiTiendaMS.Api.Libro.Persistence;
 using MiTiendaMS.Api.Libro.RemoteInterface;
 using MiTiendaMS.Api.Libro.RemoteService;
+using MiTiendaMS.RabbitMQ.Bus.BusRabbit;
+using MiTiendaMS.RabbitMQ.Bus.Implementation;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,6 +32,11 @@ namespace MiTiendaMS.Api.Libro
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddTransient<IRabbitEventBus, RabbitEventBus>();
+            services.AddSingleton<IRabbitEventBus, RabbitEventBus>(sp => {
+                var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+                return new RabbitEventBus(sp.GetService<IMediator>(), scopeFactory);
+            });
             services.AddDbContext<LibroContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("ConnectionDB"));

@@ -35,6 +35,10 @@
     <PackageReference Include="MiTiendaMS.Api.Common.mdobato" Version="1.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiTiendaMS.RabbitMQ.Bus\MiTiendaMS.RabbitMQ.Bus.csproj" />
+  </ItemGroup>
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>${NoWarn};1591</NoWarn>

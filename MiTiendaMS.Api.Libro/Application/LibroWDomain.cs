@@ -3,6 +3,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MiTiendaMS.Api.Libro.Model;
 using MiTiendaMS.Api.Libro.Persistence;
+using MiTiendaMS.RabbitMQ.Bus.BusRabbit;
+using MiTiendaMS.RabbitMQ.Bus.Queue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +35,11 @@ namespace MiTiendaMS.Api.Libro.Application
         public class LibroCreateCommandHandler : IRequestHandler<LibroCreateCommand, string>
         {
             private readonly LibroContext _context;
-            public LibroCreateCommandHandler(LibroContext context)
+            private readonly IRabbitEventBus _evtBus;
+            public LibroCreateCommandHandler(LibroContext context, IRabbitEventBus evtBus)
             {
                 _context = context;
+                _evtBus = evtBus;
             }
             /// <summary>
             /// Datos venidos del controlador y que se pasaron por el usuario
@@ -57,10 +61,13 @@ namespace MiTiendaMS.Api.Libro.Application
 
                 var result = await _context.SaveChangesAsync();
 
+                _evtBus?.Publish(new EmailQueueEvent("no-reply@mitiendams.com", libro.Titulo, libro.Descripcion));
+
                 if (result > 0)
                 {
                     return libro.LibroGuid;
                 }
+
 
                 throw new Exception("No se pudo insertar el Libro");
 
