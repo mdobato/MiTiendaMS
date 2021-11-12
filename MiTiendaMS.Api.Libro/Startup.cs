@@ -20,6 +20,7 @@ using System.Reflection;
 
 namespace MiTiendaMS.Api.Libro
 {
+    // Método Startup
     public class Startup
     {
         public Startup(IConfiguration configuration)
