@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MiTiendaMS
 {
+    // Entrada en el App
     public class Program
     {
         public static void Main(string[] args)
@@ -23,4 +24,5 @@ namespace MiTiendaMS
                     webBuilder.UseStartup<Startup>();
                 });
     }
+    
 }
